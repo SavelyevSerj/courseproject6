@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -9,6 +10,7 @@ import java.util.Date;
  */
 @Entity
 public class Document {
+    @Id
     private String id;
 
     @Basic

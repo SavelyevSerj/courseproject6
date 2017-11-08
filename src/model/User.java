@@ -2,12 +2,14 @@ package model;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Created by BigBadVoodooDaddy on 07.11.2017.
  */
 @Entity
 public class User {
+    @Id
     private String id;
 
     @Basic

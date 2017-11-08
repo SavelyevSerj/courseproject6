@@ -25,7 +25,7 @@
         <!-- название БД -->
         <property name="databaseName" value="coursework"/>
         <!-- Имя пользователя - логин к БД -->
-        <property name="User" value="sergey"/>
+        <property name="User" value="eugeny"/>
         <!-- Пароль к БД -->
         <property name="Password" value="123"/>
         <!-- URL БД - в конце имя БД -->
