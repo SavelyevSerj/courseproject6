@@ -1,15 +1,17 @@
 package model;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by BigBadVoodooDaddy on 07.11.2017.
  */
 @Entity
+@NamedQueries({@NamedQuery(name = "User.findAll", query = "select p from User p")})
 public class User {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private String id;
 
     @Basic

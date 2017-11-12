@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="coursework@localhost" uuid="cff7d63e-2367-42a4-b1e3-481d4cc84230">
+    <data-source source="LOCAL" name="courseproject@localhost" uuid="4e2fd779-c3b5-4599-9f75-f09f4d905ac5">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/coursework</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/courseproject</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
@@ -13,6 +13,7 @@
         <property name="characterEncoding" value="utf8" />
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
+        <property name="createDatabaseIfNotExist" value="true" />
       </driver-properties>
     </data-source>
   </component>
