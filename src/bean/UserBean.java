@@ -44,12 +44,31 @@ public class UserBean implements Serializable{
      * @return String - поверає сторінку для користувача відповідну до його позиції
      */
     public String userChecking() {
-        User foundUser = userDAO.findUser(this.user.getId());
-        if (foundUser == null || !foundUser.getPassword().equals(user.getPassword())) return "error";
+        User foundUser = userDAO.findUser(this.user.getLogin());
+        if (foundUser == null || !foundUser.getPassword().equals(user.getPassword()) || !foundUser.getLogin().equals(user.getLogin())) return "error";
         else {
             user = foundUser;
-            return foundUser.getPosition();
+            return "admin";
+//            return user.getPosition();
         }
+//        if (!(foundUser == null) || foundUser.getPassword().equals(user.getPassword())) {
+//            String posititon = foundUser.getPosition();
+//            if (posititon == "admin") {
+//                return "admin";
+//            }
+//            user = foundUser;
+//        }
+//        if (!(foundUser == null) || foundUser.getPassword().equals(user.getPassword())) {
+//            String position = foundUser.getPosition();
+//            if (position == "boss") return "boss";
+//            user = foundUser;
+//        }
+//        if (!(foundUser == null) || foundUser.getPassword().equals(user.getPassword())) {
+//            String position = foundUser.getPosition();
+//            if (position == "engineer") return "engineer";
+//            user = foundUser;
+//        }
+//        else return "supervisor";
     }
 
 

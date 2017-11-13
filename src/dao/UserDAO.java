@@ -15,12 +15,12 @@ public class UserDAO {
     @PersistenceContext
     EntityManager entityManager;
 
-    public User findUser(String id) {
-        List<User> users = entityManager.createQuery("select u from User u").getResultList();
-        return users.stream().filter(e -> e.getId().equals(id)).findFirst().orElse(null);
-    }
-
     public List<User> findAll() {
         return entityManager.createQuery("select u from User u").getResultList();
+    }
+
+    public User findUser(String login) {
+        List<User> userList = findAll();
+        return userList.stream().filter(e -> e.getLogin().equals(login)).findFirst().orElse(null);
     }
 }

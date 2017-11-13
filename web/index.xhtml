@@ -6,10 +6,13 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
    <f:view>
-      <h:head><title></title></h:head>
-      <h:link rel="stylesheet" type="text/css" href="styles.css"/>
+      <h:head><title>Greeting</title>
+         <h:link rel="stylesheet" type="text/css" href="styles.css"/>
+      </h:head>
+
       <h:body>
          <h2>To enter the system, please fill in your login and password!</h2>
+         <div>
          <h:form>
             <h:messages></h:messages>
             <h:panelGrid columns="2" cellpadding="5">
@@ -20,6 +23,7 @@
             </h:panelGrid>
             <p:commandButton value="Submit" action="#{userBean.userChecking}" ajax="false"/>
          </h:form>
+         </div>
       </h:body>
    </f:view>
 </html>
