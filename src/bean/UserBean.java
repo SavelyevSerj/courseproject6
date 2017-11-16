@@ -6,6 +6,7 @@ import model.User;
 import javax.ejb.EJB;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by BigBadVoodooDaddy on 07.11.2017.
  */
 @SessionScoped
-@Named
+@ManagedBean (name = "userBean", eager = true)
 public class UserBean implements Serializable{
 
     @EJB
@@ -45,11 +46,10 @@ public class UserBean implements Serializable{
      */
     public String userChecking() {
         User foundUser = userDAO.findUser(this.user.getLogin());
-        if (foundUser == null || !foundUser.getPassword().equals(user.getPassword()) || !foundUser.getLogin().equals(user.getLogin())) return "error";
+        if (foundUser == null || !foundUser.getPassword().equals(user.getPassword())) return "error";
         else {
             user = foundUser;
-            return "admin";
-//            return user.getPosition();
+            return user.getPosition();
         }
 //        if (!(foundUser == null) || foundUser.getPassword().equals(user.getPassword())) {
 //            String posititon = foundUser.getPosition();
@@ -71,6 +71,36 @@ public class UserBean implements Serializable{
 //        else return "supervisor";
     }
 
+    public String returnToIndex() {
+        return "index";
+    }
+
+    /**
+     * виконує корегування данних користувача
+     */
+    public void editUser() {}
+
+    /**
+     * додає нового користувача
+     */
+    public String addNewUser() {
+        if (user.getId() == null || user.getLogin() == null || user.getPassword() == null || user.getPosition() == null || user.getName() == null || user.getSurname() == null || user.getCategory() == null) return "fail";
+        userDAO.add(user);
+        user = new User();
+        return "index";
+    }
+
+    /**
+     * видаляє користувача
+     */
+    public void deleteUser() {
+        userDAO.delete(user);
+    }
+
+    /**
+     * обновює данні
+     */
+    public void refreshTheList() {}
 
     public List<User> getUserList() {
         return userDAO.findAll();

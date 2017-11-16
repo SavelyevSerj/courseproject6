@@ -20,7 +20,20 @@ public class UserDAO {
     }
 
     public User findUser(String login) {
-        List<User> userList = findAll();
+        List resultList = entityManager.createQuery("select u from User u").getResultList();
+        List<User> userList = resultList;
         return userList.stream().filter(e -> e.getLogin().equals(login)).findFirst().orElse(null);
     }
+
+    public void add(User user) {
+        entityManager.persist(user);
+    }
+
+    public void delete(User user) {
+        entityManager.remove(user);
+    }
+
+//    public void refresh(List<User> users) {
+//        entityManager.flush(users);
+//    }
 }
